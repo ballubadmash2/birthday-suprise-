@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title>
+<title>ہیپی برتھ ڈے 💖</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,35 +13,34 @@
   <source src="YOUR_MUSIC_LINK.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PAGE 1 -->
+<!-- PAGE 1: Welcome -->
 <div class="page" id="page1">
-  <h1>🎂 Happy Birthday My Love 🎀</h1>
-  <p>You make my life colorful and pink 🌸💖</p>
-  <button onclick="go(2)">Next 💌</button>
+  <h1>🎂 ہیپی برتھ ڈے میری جان 🎀</h1>
+  <p>تم میری زندگی کو رنگین اور خوبصورت بناتی ہو 💖🌸</p>
+  <button onclick="go(2)">اگلا 💌</button>
 </div>
 
 <!-- PAGE 2: Countdown -->
 <div class="page" id="page2">
-  <h1>⏳ Countdown to Your Birthday</h1>
+  <h1>⏳ تمہاری سالگرہ تک گنتی</h1>
   <p id="timer"></p>
-  <button onclick="go(3)">Next 🌸</button>
+  <button onclick="go(3)">اگلا 🌸</button>
 </div>
 
-<!-- PAGE 3: Photos -->
+<!-- PAGE 3: Long Distance Memories -->
 <div class="page" id="page3">
-  <h1>📸 Our Memories</h1>
-  <img src="PHOTO_LINK_1" alt="Memory 1">
-  <img src="PHOTO_LINK_2" alt="Memory 2">
-  <button onclick="go(4)">Next 💖</button>
+  <h1>📸 ہماری یادیں</h1>
+  <p>ہم ابھی تک نہیں ملے… اور یہی سب سے افسوسناک بات ہے 😢</p>
+  <p>لیکن میرا دل ہمیشہ تمہارے ساتھ ہے 💖</p>
+  <button onclick="go(4)">اگلا 💖</button>
 </div>
 
 <!-- PAGE 4: Secret Letter -->
 <div class="page" id="page4">
-  <h1>💌 Secret Letter</h1>
-  <input type="password" id="pass" placeholder="Enter secret code 💕">
-  <button onclick="unlock()">Open 💖</button>
+  <h1>💌 خفیہ پیغام</h1>
+  <input type="password" id="pass" placeholder="خفیہ کوڈ درج کریں 💕">
+  <button onclick="unlock()">کھولیں 💖</button>
   <p id="secret"></p>
-  <button onclick="confetti()">Final Surprise 🎉</button>
 </div>
 
 <!-- Confetti Canvas -->
