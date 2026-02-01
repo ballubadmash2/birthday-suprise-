@@ -5,6 +5,7 @@ body {
   text-align: center;
   color: white;
   padding: 20px;
+  direction: rtl; /* For Urdu text right-to-left */
 }
 
 .page {
@@ -40,13 +41,6 @@ button {
 
 button:hover {
   background: #ffe3ec;
-}
-
-img {
-  width: 90%;
-  max-width: 300px;
-  border-radius: 20px;
-  margin: 10px 0;
 }
 
 #secret {
