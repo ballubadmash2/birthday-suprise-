@@ -8,7 +8,7 @@ function go(n){
 }
 
 // Countdown to 2nd Feb 12:00 AM
-const birthday=new Date("2026-02-02T00:00:00").getTime();
+const birthday=new Date("2026-02-02T00:00:00+05:00").getTime();
 setInterval(()=>{
   const now=new Date().getTime();
   let diff=birthday-now;
