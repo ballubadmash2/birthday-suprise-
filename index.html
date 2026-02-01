@@ -3,30 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title>
-<style>
-body {
-  margin:0;
-  font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-  text-align:center;
-  color:white;
-  padding:20px;
-}
-.page{display:none;min-height:100vh;padding:40px 20px;}
-.page.active{display:block;}
-h1{font-size:32px;margin-bottom:20px;}
-p{font-size:18px;margin-bottom:20px;}
-button{background:white;color:#ff4b7d;border:none;padding:14px 26px;border-radius:30px;font-size:16px;margin-top:20px;cursor:pointer;}
-button:hover{background:#ffe3ec;}
-input{padding:10px;font-size:16px;border-radius:10px;border:none;margin-top:10px;}
-#timer{margin-top:20px;}
-</style>
+<title>Happy Birthday my Zainoo 💖</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- PAGE 1: Romantic Welcome -->
 <div class="page" id="page1">
-  <h1>💖 Happy Birthday My Love 💖</h1>
+  <h1>💖 Happy Birthday Zainab 💖</h1>
   <p>
-    Even though we are miles apart, every thought
+    Even though we are miles apart, every thought of you fills my heart with warmth and joy.<br>
+    Your smile is my sunshine, your happiness is my world. 🌸💞<br>
+    I wish I could be there to hold you today, but my love is with you always.
+  </p>
+  <button onclick="go(2)">Next 💌</button>
+</div>
+
+<!-- PAGE 2: Countdown -->
+<div class="page" id="page2">
+  <h1>⏳ Countdown to Your Birthday</h1>
+  <p id="timer"></p>
+  <button onclick="go(3)">Next 🌸</button>
+</div>
+
+<!-- PAGE 3: Memories -->
+<div class="page" id="page3">
+  <h1>📸 Our Memories</h1>
+  <p>ہم ابھی تک نہیں ملے… اور یہی سب سے افسوسناک بات ہے 😢</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
