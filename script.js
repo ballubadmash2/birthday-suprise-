@@ -8,7 +8,7 @@ function go(n) {
 }
 
 // Countdown Timer
-const birthday = new Date("2026-02-14").getTime(); // <-- Replace with her birthday
+const birthday = new Date("2005-02-02").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
