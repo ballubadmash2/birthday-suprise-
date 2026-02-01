@@ -7,26 +7,36 @@ function go(n) {
   document.getElementById("page" + n).classList.add("active");
 }
 
-// Countdown Timer
-const birthday = new Date("2026-02-02").getTime();
+// Countdown Timer - Days, Hours, Minutes, Seconds
+const birthday = new Date("2026-02-14T00:00:00").getTime(); // <-- replace with her birthday YYYY-MM-DD
 
 setInterval(() => {
   const now = new Date().getTime();
   const diff = birthday - now;
 
+  if(diff <= 0){
+    document.getElementById("timer").innerHTML = "🎉 ہیپی برتھ ڈے! 🎉";
+    return;
+  }
+
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
   document.getElementById("timer").innerHTML =
-    days + " days until your special day 💗";
+    `${days} دن ${hours} گھنٹے ${minutes} منٹ ${seconds} سیکنڈ باقی 💗`;
 }, 1000);
 
 // Secret Letter
 function unlock() {
-  const pass = document.getElementById("pass").value;
-  if (pass.toLowerCase() === "ilove you") { // <-- Change code if you want
+  const pass = document.getElementById("pass").value.trim().toLowerCase();
+  if (pass === "iloveyou") { // <-- replace with your secret code
     document.getElementById("secret").innerHTML =
-      "You are my favorite person in this world ❤️ I love you endlessly 💕";
+      "💖 تم میری زندگی کی سب سے خاص شخصیت ہو ❤️ میں تم سے ہمیشہ محبت کروں گا 💕";
+    confetti(); // trigger confetti automatically
   } else {
-    document.getElementById("secret").innerHTML = "Wrong code 😢 Try again!";
+    document.getElementById("secret").innerHTML = "❌ غلط کوڈ 😢 دوبارہ کوشش کریں!";
   }
 }
 
