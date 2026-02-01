@@ -1,5 +1,4 @@
 // Multi-page flow
-let current = 1;
 document.getElementById("page1").classList.add("active");
 
 function go(n) {
@@ -7,15 +6,15 @@ function go(n) {
   document.getElementById("page" + n).classList.add("active");
 }
 
-// Countdown Timer - Days, Hours, Minutes, Seconds
-const birthday = new Date("2026-02-14T00:00:00").getTime(); // <-- replace with her birthday YYYY-MM-DD
+// Countdown Timer - Ticking to 2nd February 12 PM
+const birthday = new Date("2026-02-02T12:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
   const diff = birthday - now;
 
   if(diff <= 0){
-    document.getElementById("timer").innerHTML = "🎉 ہیپی برتھ ڈے! 🎉";
+    document.getElementById("timer").innerHTML = "🎉 Happy Birthday! 🎉";
     return;
   }
 
@@ -25,18 +24,18 @@ setInterval(() => {
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   document.getElementById("timer").innerHTML =
-    `${days} دن ${hours} گھنٹے ${minutes} منٹ ${seconds} سیکنڈ باقی 💗`;
+    `${days}d ${hours}h ${minutes}m ${seconds}s left 💗`;
 }, 1000);
 
 // Secret Letter
 function unlock() {
   const pass = document.getElementById("pass").value.trim().toLowerCase();
-  if (pass === "iloveyou") { // <-- replace with your secret code
-    document.getElementById("secret").innerHTML =
-      "💖 تم میری زندگی کی سب سے خاص شخصیت ہو ❤️ میں تم سے ہمیشہ محبت کروں گا 💕";
-    confetti(); // trigger confetti automatically
+  if(pass === "iloveyou") { // <-- your secret code
+    document.getElementById("secret").innerHTML = 
+      "💖 You are my favorite person in this world ❤️ I love you endlessly 💕";
+    confetti();
   } else {
-    document.getElementById("secret").innerHTML = "❌ غلط کوڈ 😢 دوبارہ کوشش کریں!";
+    document.getElementById("secret").innerHTML = "❌ Wrong code 😢 Try again!";
   }
 }
 
@@ -48,25 +47,25 @@ function confetti() {
   canvas.height = window.innerHeight;
 
   let pieces = [];
-  for (let i = 0; i < 150; i++) {
+  for (let i=0; i<150; i++) {
     pieces.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 6 + 2,
-      dy: Math.random() * 3 + 2,
-      color: `hsl(${Math.random()*360}, 100%, 75%)`
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height,
+      r: Math.random()*6+2,
+      dy: Math.random()*3+2,
+      color: `hsl(${Math.random()*360},100%,75%)`
     });
   }
 
   function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    pieces.forEach(p => {
+    pieces.forEach(p=>{
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fillStyle = p.color;
       ctx.fill();
       p.y += p.dy;
-      if(p.y > canvas.height) p.y = 0;
+      if(p.y>canvas.height) p.y=0;
     });
     requestAnimationFrame(draw);
   }
