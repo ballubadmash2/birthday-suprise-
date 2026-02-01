@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="YOUR_MUSIC_LINK.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+  <h1>🎂 Happy Birthday My Love 🎀</h1>
+  <p>You make my life colorful and pink 🌸💖</p>
+  <button onclick="go(2)">Next 💌</button>
+</div>
+
+<!-- PAGE 2: Countdown -->
+<div class="page" id="page2">
+  <h1>⏳ Countdown to Your Birthday</h1>
+  <p id="timer"></p>
+  <button onclick="go(3)">Next 🌸</button>
+</div>
+
+<!-- PAGE 3: Photos -->
+<div class="page" id="page3">
+  <h1>📸 Our Memories</h1>
+  <img src="PHOTO_LINK_1" alt="Memory 1">
+  <img src="PHOTO_LINK_2" alt="Memory 2">
+  <button onclick="go(4)">Next 💖</button>
+</div>
+
+<!-- PAGE 4: Secret Letter -->
+<div class="page" id="page4">
+  <h1>💌 Secret Letter</h1>
+  <input type="password" id="pass" placeholder="Enter secret code 💕">
+  <button onclick="unlock()">Open 💖</button>
+  <p id="secret"></p>
+  <button onclick="confetti()">Final Surprise 🎉</button>
+</div>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
