@@ -6,7 +6,7 @@ function go(n) {
   document.getElementById("page" + n).classList.add("active");
 }
 
-// Countdown Timer - Ticking to 2nd February 12 PM
+// Countdown Timer - Ticking to 2nd Feb 12 PM
 const birthday = new Date("2026-02-02T12:00:00").getTime();
 
 setInterval(() => {
@@ -23,14 +23,16 @@ setInterval(() => {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000*60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
+  // Display in English labels
   document.getElementById("timer").innerHTML =
-    `${days}d ${hours}h ${minutes}m ${seconds}s left 💗`;
+    `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds left 💗`;
 }, 1000);
 
 // Secret Letter
 function unlock() {
   const pass = document.getElementById("pass").value.trim().toLowerCase();
-  if(pass === "iloveyou") { // <-- your secret code
+  const correctCode = "iloveyou"; // <-- change to your secret code
+  if(pass === correctCode) {
     document.getElementById("secret").innerHTML = 
       "💖 You are my favorite person in this world ❤️ I love you endlessly 💕";
     confetti();
@@ -71,3 +73,9 @@ function confetti() {
   }
   draw();
 }
+
+// Auto-play music fix
+window.addEventListener('load', () => {
+  const music = document.getElementById("bgMusic");
+  music.play().catch(()=>{}); 
+});
