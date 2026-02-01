@@ -6,27 +6,113 @@
 <title>Happy Birthday 💖</title>
 <style>
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  text-align: center;
-  color: white;
-  padding: 20px;
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  text-align:center;
+  color:white;
+  padding:20px;
 }
-.page { display: none; min-height: 100vh; padding: 40px 20px; }
-.page.active { display: block; }
-h1 { font-size: 32px; margin-bottom: 20px; }
-p { font-size: 18px; margin-bottom: 20px; }
-button { background: white; color: #ff4b7d; border: none; padding: 14px 26px; border-radius: 30px; font-size: 16px; margin-top: 20px; cursor: pointer; }
-button:hover { background: #ffe3ec; }
-input { padding: 10px; font-size: 16px; border-radius: 10px; border: none; margin-top: 10px; }
-#celebration { margin-top: 30px; }
-.cake { font-size: 80px; }
-.balloons { font-size: 50px; margin: 10px; display:inline-block; animation: float 2s infinite alternate; }
-@keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-20px); } }
+.page{display:none;min-height:100vh;padding:40px 20px;}
+.page.active{display:block;}
+h1{font-size:32px;margin-bottom:20px;}
+p{font-size:18px;margin-bottom:20px;}
+button{background:white;color:#ff4b7d;border:none;padding:14px 26px;border-radius:30px;font-size:16px;margin-top:20px;cursor:pointer;}
+button:hover{background:#ffe3ec;}
+input{padding:10px;font-size:16px;border-radius:10px;border:none;margin-top:10px;}
+#celebration{margin-top:30px;}
+.cake{font-size:80px;}
+.balloons{font-size:50px;margin:10px;display:inline-block;animation:float 2s infinite alternate;}
+@keyframes float{0%{transform:translateY(0);}100%{transform:translateY(-20px);}}
 </style>
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
 <!-- PAGE 1: Welcome -->
-<div class="pag
+<div class="page" id="page1">
+  <h1>🎂 Happy Birthday My Love 🎀</h1>
+  <p>You make my life colorful and pink 🌸💖</p>
+  <button onclick="startAll(); go(2)">Next 💌</button>
+</div>
+
+<!-- PAGE 2: Countdown -->
+<div class="page" id="page2">
+  <h1>⏳ Countdown to Your Birthday</h1>
+  <p id="timer"></p>
+  <button onclick="go(3)">Next 🌸</button>
+</div>
+
+<!-- PAGE 3: Memories -->
+<div class="page" id="page3">
+  <h1>📸 Our Memories</h1>
+  <p>ہم ابھی تک نہیں ملے… اور یہی سب سے افسوسناک بات ہے 😢</p>
+  <button onclick="go(4)">Next 💖</button>
+</div>
+
+<!-- PAGE 4: Secret Letter -->
+<div class="page" id="page4">
+  <h1>💌 Secret Letter</h1>
+  <input type="password" id="pass" placeholder="Enter secret code 💕">
+  <button onclick="unlock()">Open 💖</button>
+  <div id="celebration"></div>
+</div>
+
+<script>
+// Show first page
+document.getElementById("page1").classList.add("active");
+
+// Navigation function
+function go(n){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page"+n).classList.add("active");
+}
+
+// Start music & countdown
+function startAll(){
+  const music=document.getElementById("bgMusic");
+  music.play().catch(()=>{});
+}
+
+// Countdown
+const birthday=new Date("2026-02-02T00:00:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  let diff=birthday-now;
+  if(diff<=0){
+    document.getElementById("timer").innerHTML="🎉 Happy Birthday! 🎉";
+    return;
+  }
+  const totalSeconds=Math.floor(diff/1000);
+  const days=Math.floor(totalSeconds/(24*60*60));
+  const hours=Math.floor((totalSeconds%(24*60*60))/3600);
+  const minutes=Math.floor((totalSeconds%3600)/60);
+  const seconds=totalSeconds%60;
+  document.getElementById("timer").innerHTML=
+    `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds left 💗`;
+},1000);
+
+// Secret code
+function unlock(){
+  const pass=document.getElementById("pass").value.trim().toLowerCase();
+  const celebration=document.getElementById("celebration");
+  celebration.innerHTML="";
+  const correctCode="iloveyou"; // <-- change this to your secret code
+  if(pass===correctCode){
+    celebration.innerHTML=`
+      <div class="balloons">🎈🎈🎈</div>
+      <div class="cake">🎂</div>
+      <h2>Happy Birthday My Jaan 💖</h2>
+      <div class="balloons">🎈🎈🎈</div>
+    `;
+  } else {
+    celebration.innerHTML="❌ Wrong code 😢 Try again!";
+  }
+}
+</script>
+
+</body>
+</html>
