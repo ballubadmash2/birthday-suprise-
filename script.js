@@ -22,7 +22,7 @@ setInterval(() => {
 // Secret Letter
 function unlock() {
   const pass = document.getElementById("pass").value;
-  if (pass.toLowerCase() === "iloveyou") { // <-- Change code if you want
+  if (pass.toLowerCase() === "ilove you") { // <-- Change code if you want
     document.getElementById("secret").innerHTML =
       "You are my favorite person in this world ❤️ I love you endlessly 💕";
   } else {
